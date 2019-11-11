@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Android Atom</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main" id="main" >
+            <div id="divPrincipal">
+                <h1>Digite o ID do formulário</h1>
+                <div class="centro">
+                    <input class="text centro" id="numeroId">
+                    <button class="btn btn-outline-warning centro" type="submit" id="requisicao" onclick="enviaRequisicao()">Pesquisar</button>
+                </div>
+                <form id="jojo" class="divPrincipal"></form>
+            </div>
+            
+            <button class="btn btn-outline-warning" disabled type="submit" id="divSecundaria" onclick="enviaRespota(event)">Enviar Resposta</button>
+            
+        </div>
+        
+    </body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</html>
