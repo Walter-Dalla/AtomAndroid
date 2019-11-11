@@ -33,6 +33,9 @@ function enviaRespota(ev){
     {
         axios.post('http://143.106.73.94:5000/formulario/resposta/' + {"idCampoFormulario":formId, "camposResposta":array})
         .then(function(){
+            var label = document.getElementById('err');
+            label.appendChild(document.createTextNode(element.campo.label));
+
             let popUp = document.createElement('div');
             popUp.setAttribute('id','popUp');
             popUp.setAttribute('class','centro');
@@ -48,6 +51,8 @@ function enviaRespota(ev){
             }
         }) 
         .catch(function(error){
+            var label = document.getElementById('err');
+            label.appendChild(document.createTextNode(element.campo.label));
             console.warn(error);
         })
     }
@@ -77,6 +82,8 @@ function enviaRequisicao(){
     formId = inputElement.value;
     axios.get('http://143.106.73.94:5000/formulario?id=' + formId)
     .then(function(response){
+        var label = document.getElementById('err');
+            label.appendChild(document.createTextNode(JSON.stringify(response)));
         getTitle(response);
     })
         .catch(function(error){
@@ -85,6 +92,8 @@ function enviaRequisicao(){
 
     axios.get('http://143.106.73.94:5000/formulario/resposta/' + formId)
     .then(function(response){
+        var label = document.getElementById('err');
+            label.appendChild(document.createTextNode(JSON.stringify(response)));
         printForm(response);
     })
         .catch(function(error){
